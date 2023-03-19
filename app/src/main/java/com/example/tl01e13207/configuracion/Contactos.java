@@ -6,6 +6,11 @@ import android.database.sqlite.SQLiteDatabase;
 
 import androidx.annotation.Nullable;
 
+import com.example.tl01e13207.tablas.Personas;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Contactos extends SQLiteconexion
 {
     Context context;
@@ -32,4 +37,12 @@ public class Contactos extends SQLiteconexion
         }
         return id;
     }
+
+    public ArrayList<Personas> mostrarcontacto(){
+
+        SQLiteconexion sqLiteconexion = new SQLiteconexion(context);
+        SQLiteDatabase db = sqLiteconexion.getWritableDatabase();
+
+    }
+
 }

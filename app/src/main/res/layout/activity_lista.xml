@@ -7,7 +7,7 @@
     tools:context=".Lista">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ListaContacto"
+        android:id="@+id/RVListaContacto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"

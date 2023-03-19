@@ -2,6 +2,7 @@ package com.example.tl01e13207.configuracion;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import androidx.annotation.Nullable;
@@ -42,6 +43,25 @@ public class Contactos extends SQLiteconexion
 
         SQLiteconexion sqLiteconexion = new SQLiteconexion(context);
         SQLiteDatabase db = sqLiteconexion.getWritableDatabase();
+        ArrayList<Personas> ListaContactos = new ArrayList<>();
+        Personas contacto = null;
+        Cursor cursorcontacto = null;
+        cursorcontacto = db.rawQuery("SELECT * FROM " + TABLA_CONTACTOS, null);
+
+        if (cursorcontacto.moveToFirst()){
+            do {
+                contacto = new Personas();
+                contacto.setId(cursorcontacto.getInt(0));
+                contacto.setNombre(cursorcontacto.getString(1));
+                contacto.setNumero(cursorcontacto.getString(2));
+                contacto.setNota(cursorcontacto.getString(3));
+                ListaContactos.add(contacto);
+            }while (cursorcontacto.moveToNext());
+        }
+
+        cursorcontacto.close();
+
+        return ListaContactos;
 
     }
 

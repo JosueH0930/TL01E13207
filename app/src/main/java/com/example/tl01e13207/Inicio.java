@@ -15,12 +15,21 @@ import java.sql.SQLData;
 
 public class Inicio extends AppCompatActivity {
 
-    Button BtnIngresar;
+    Button BtnIngresar, BtnLista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
+
+        BtnLista = findViewById(R.id.BtnLista);
+        BtnLista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(Inicio.this,Lista.class));
+            }
+        });
 
         BtnIngresar = findViewById(R.id.BtnIngresar);
         BtnIngresar.setOnClickListener(new View.OnClickListener() {

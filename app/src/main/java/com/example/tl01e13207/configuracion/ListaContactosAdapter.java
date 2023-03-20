@@ -1,5 +1,7 @@
 package com.example.tl01e13207.configuracion;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tl01e13207.R;
+import com.example.tl01e13207.VerActivity;
 import com.example.tl01e13207.tablas.Personas;
 
 import java.util.ArrayList;
@@ -50,6 +53,16 @@ public class ListaContactosAdapter extends RecyclerView.Adapter<ListaContactosAd
             viewNombre = itemView.findViewById(R.id.Viewnombre);
             viewTelefono = itemView.findViewById(R.id.Viewtelefono);
             viewNota = itemView.findViewById(R.id.Viewnota);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context, VerActivity.class);
+                    intent.putExtra("ID", listacontactos.get(getAdapterPosition()).getId());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }
